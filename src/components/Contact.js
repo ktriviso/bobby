@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Recaptcha from 'react-google-recaptcha'
+import axios from 'axios'
 
 class App extends Component {
   state = {
@@ -10,14 +11,27 @@ class App extends Component {
   handleSubmit = async e => {
     e.preventDefault()
     // console.log(this.state.recaptcha)
-    await fetch('https://bobby-be.now.sh/api/email', {
-      method: 'POST',
 
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email: this.state.post })
-    })
+    const dataRes = await axios
+      .post('https://bobby-be.now.sh/api/email', {
+        email: this.state.post
+      })
+      .then(function(response) {
+        console.log(response)
+        return response
+      })
+      .catch(function(error) {
+        console.log(error)
+      })
+
+    // await fetch('https://bobby-be.now.sh/api/email', {
+    //   method: 'POST',
+
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({ email: this.state.post })
+    // })
   }
   handleRecaptcha = value => {
     this.setState({ recaptcha: value })
