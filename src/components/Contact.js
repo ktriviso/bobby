@@ -24,6 +24,7 @@ class App extends Component {
         console.log(error)
       })
 
+    console.log('TCL: App -> dataRes', dataRes)
     // await fetch('https://bobby-be.now.sh/api/email', {
     //   method: 'POST',
 
