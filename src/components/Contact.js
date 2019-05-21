@@ -13,7 +13,7 @@ class App extends Component {
     // console.log(this.state.recaptcha)
 
     const dataRes = await axios
-      .post('https://bobby-be.monichre.now.sh', {
+      .post('https://bobby-be.monichre.now.sh/api/email', {
         email: this.state.post
       })
       .then(function(response) {
