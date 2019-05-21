@@ -12,28 +12,28 @@ class App extends Component {
     e.preventDefault()
     // console.log(this.state.recaptcha)
 
-    // const dataRes = await axios
-    //   .post('https://bobby-be.now.sh/api/email', {
-    //     email: this.state.post
-    //   })
-    //   .then(function(response) {
-    //     console.log(response)
-    //     return response
-    //   })
-    //   .catch(function(error) {
-    //     console.log(error)
-    //   })
+    const dataRes = await axios
+      .post('https://bobby-be.monichre.now.sh', {
+        email: this.state.post
+      })
+      .then(function(response) {
+        console.log(response)
+        return response
+      })
+      .catch(function(error) {
+        console.log(error)
+      })
 
-    await fetch('https://bobby-be.now.sh/api/email', {
-      method: 'POST',
+    // await fetch('https://bobby-be.now.sh/api/email', {
+    //   method: 'POST',
 
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email: this.state.post })
-    })
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
+    //   // headers: {
+    //   //   'Content-Type': 'application/json'
+    //   // },
+    //   body: JSON.stringify({ email: this.state.post })
+    // })
+    //   .then(res => console.log(res))
+    //   .catch(err => console.log(err))
   }
 
   handleRecaptcha = value => {
